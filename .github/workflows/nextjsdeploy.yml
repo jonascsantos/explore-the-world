@@ -5,6 +5,9 @@ on:
     branches: ["main", "master"]
   workflow_dispatch:
 
+env:
+  NEXT_PUBLIC_UNSPLASH_ACCESS_KEY: ${{ secrets.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY }}
+
 permissions:
   contents: read
   pages: write
@@ -65,6 +68,13 @@ jobs:
           if [ "${{ steps.detect.outputs.manager }}" = "pnpm" ]; then pnpm install; \
           elif [ "${{ steps.detect.outputs.manager }}" = "yarn" ]; then yarn install --frozen-lockfile=false; \
           else npm install; fi
+
+      
+      - name: Create .env file
+        shell: bash
+        run: |
+          ENV_PATH=".env"
+          echo "NEXT_PUBLIC_UNSPLASH_ACCESS_KEY=${{ secrets.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY }}" >> $ENV_PATH
 
       - name: Build with Next.js
         run: |
