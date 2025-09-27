@@ -5,9 +5,9 @@ import { createQueryClient } from '@/lib/query-client-server';
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 
 interface CountryPageProps {
-  params: {
+  params: Promise<{
     name: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
