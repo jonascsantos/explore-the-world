@@ -3,6 +3,7 @@ import { createQueryClient } from '@/lib/query-client-server';
 import { countriesApi } from '@/lib/api';
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 import { HeroSearchClient } from '@/components/hero-search-client';
+import Image from 'next/image';
 
 export default async function Home() {
   const queryClient = createQueryClient();
@@ -14,18 +15,17 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      <div 
-        className="relative overflow-hidden"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1541343672885-9be56236302a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MDk0ODR8MHwxfHNlYXJjaHwxfHxIdW5nYXJ5fGVufDB8fHx8MTc1ODk3NTMxOHww&ixlib=rb-4.1.0&q=80&w=1080')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
-      >
+      <div className="relative overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1541343672885-9be56236302a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MDk0ODR8MHwxfHNlYXJjaHwxfHxIdW5nYXJ5fGVufDB8fHx8MTc1ODk3NTMxOHww&ixlib=rb-4.1.0&q=80&w=1080"
+          alt="Beautiful landscape"
+          fill
+          className="object-cover"
+          priority
+        />
         <div className="absolute inset-0 bg-black/40"/>
         
-        <div className="relative z-20 container mx-auto px-6 sm:py-24 md:py-32">
+        <div className="relative z-20 container mx-auto px-6 py-16 md:py-32">
           <div className="text-center text-white max-w-6xl mx-auto">
             <div className="relative">
               

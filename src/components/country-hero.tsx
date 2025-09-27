@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft } from 'lucide-react';
 import { Country } from '@/lib/api';
 
@@ -12,20 +13,20 @@ export function CountryHero({ country, backgroundImageUrl, isImageLoading }: Cou
   return (
     <div className="min-h-screen relative">
 
-      <div 
-        className="relative min-h-screen flex items-center overflow-hidden w-full"
-        style={{
-          backgroundImage: backgroundImageUrl ? `url('${backgroundImageUrl}')` : undefined,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
-      >
-        {!backgroundImageUrl && (
+      <div className="relative min-h-screen flex items-center overflow-hidden w-full">
+        {backgroundImageUrl ? (
+          <Image
+            src={backgroundImageUrl}
+            alt={`${country.name.common} landscape`}
+            fill
+            className="object-cover"
+            priority
+          />
+        ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-emerald-900 to-teal-900"></div>
         )}
         
-        <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-black/20 to-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-black/40"></div>
         
         {isImageLoading && (
           <div className="absolute top-4 right-4 z-30">
@@ -64,7 +65,7 @@ export function CountryHero({ country, backgroundImageUrl, isImageLoading }: Cou
                         {country.name.common}
                       </h1>
                       {country.name.common !== country.name.official && (
-                        <p className="text-2xl text-white/80 font-light mb-8 drop-shadow-lg truncate">
+                        <p className="text-2xl text-white/80 font-light mb-8 drop-shadow-lg xs:text-clip sm:truncate">
                           {country.name.official}
                         </p>
                       )}
@@ -72,18 +73,18 @@ export function CountryHero({ country, backgroundImageUrl, isImageLoading }: Cou
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-6">
-                  <div className="text-center bg-white/10 backdrop-blur-xs rounded-2xl p-6 border border-white/20 shadow-xl">
-                    <p className="text-3xl font-bold text-white mb-1 drop-shadow-lg">{country.population?.toLocaleString() || 'N/A'}</p>
-                    <p className="text-sm text-white/80">Population</p>
+                <div className="grid sm:grid-cols-3 gap-6 xs:grid-cols-1 text-start">
+                  <div className="w-min md:w-auto text-center bg-white/10 backdrop-blur-xs rounded-2xl p-6 border border-white/20 shadow-xl">
+                    <p className="text-3xl font-bold text-white mb-1 drop-shadow-lg text-start">{country.population?.toLocaleString() || 'N/A'}</p>
+                    <p className="text-sm text-white/80 text-start">Population</p>
                   </div>
-                  <div className="text-center bg-white/10 backdrop-blur-xs rounded-2xl p-6 border border-white/20 shadow-xl">
-                    <p className="text-3xl font-bold text-white mb-1 drop-shadow-lg">{country.capital?.join(', ') || 'N/A'}</p>
-                    <p className="text-sm text-white/80">Capital</p>
+                  <div className="w-min md:w-auto text-center bg-white/10 backdrop-blur-xs rounded-2xl p-6 border border-white/20 shadow-xl">
+                    <p className="text-3xl font-bold text-white mb-1 drop-shadow-lg text-start">{country.capital?.join(', ') || 'N/A'}</p>
+                    <p className="text-sm text-white/80 text-start">Capital</p>
                   </div>
-                  <div className="text-center bg-white/10 backdrop-blur-xs rounded-2xl p-6 border border-white/20 shadow-xl">
-                    <p className="text-3xl font-bold text-white mb-1 drop-shadow-lg">{country.region}</p>
-                    <p className="text-sm text-white/80">Region</p>
+                  <div className="w-min md:w-auto text-center bg-white/10 backdrop-blur-xs rounded-2xl p-6 border border-white/20 shadow-xl">
+                    <p className="text-3xl font-bold text-white mb-1 drop-shadow-lg text-start">{country.region}</p>
+                    <p className="text-sm text-white/80 text-start">Region</p>
                   </div>
                 </div>
               </div>
