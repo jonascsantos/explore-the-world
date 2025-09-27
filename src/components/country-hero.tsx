@@ -11,9 +11,9 @@ interface CountryHeroProps {
 
 export function CountryHero({ country, backgroundImageUrl, isImageLoading }: CountryHeroProps) {
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-[95vh] relative">
 
-      <div className="relative min-h-screen flex items-center overflow-hidden w-full">
+      <div className="relative min-h-[95vh] flex items-center overflow-hidden w-full">
         {backgroundImageUrl ? (
           <Image
             src={backgroundImageUrl}
