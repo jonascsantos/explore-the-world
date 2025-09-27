@@ -1,6 +1,25 @@
-# Countries Explorer
+# Explore the World
 
-Countries Explorer 
+Countries Explorer - Data from https://restcountries.com
+
+Hero
+
+<img width="700" height="500" alt="Screenshot 2025-09-27 200300" src="https://github.com/user-attachments/assets/716b502e-bb5d-4079-800b-0ebc89fd8ddb" />
+
+
+Countries List
+
+<img width="650" height="500" alt="image" src="https://github.com/user-attachments/assets/7efa41dd-4eb8-4d3a-bbcf-80c27451e029" />
+
+
+Country Details Hero
+
+<img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/cb73a714-5f77-42ce-b9b5-fbe02fa58899" />
+
+
+Country Details
+
+<img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/9283fa7f-8a44-4adc-961a-7f832001da26" />
 
 ---
 
